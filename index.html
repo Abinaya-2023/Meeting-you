@@ -3,133 +3,130 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#070817">
-<title>Batman × Bee — Our Little Galaxy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090719">
+<title>Batman × Bee | The Lore</title>
 <style>
-:root {
-  --bg:#070817; --panel:rgba(20,20,53,.91);
-  --text:#f7f1ff; --muted:#c4bddc;
-  --gold:#ffe6a6; --lilac:#c9a9ff;
-  --pink:#ffb6dc; --cyan:#a8efff;
-  --border:rgba(220,211,255,.24);
+:root{
+  --bg:#090719;--panel:#17132eeF;--text:#f8f2ff;
+  --muted:#c7bfdf;--gold:#ffe3a3;--pink:#ffbce2;
+  --purple:#cbb3ff;--blue:#a8eaff;--line:#bda9ff42;
 }
 *{box-sizing:border-box}
-html{background:var(--bg);scroll-behavior:smooth}
+html{scroll-behavior:smooth}
 body{
-  margin:0;min-height:100vh;color:var(--text);
-  font-family:system-ui,-apple-system,sans-serif;
+  margin:0;color:var(--text);min-height:100vh;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   background:
-    radial-gradient(ellipse at 12% 15%,#47266d66,transparent 38%),
-    radial-gradient(ellipse at 88% 28%,#174b7066,transparent 36%),
-    radial-gradient(ellipse at 55% 100%,#58245144,transparent 40%),var(--bg);
+    radial-gradient(ellipse at 10% 15%,#57338166,transparent 35%),
+    radial-gradient(ellipse at 90% 40%,#14516a55,transparent 35%),
+    radial-gradient(ellipse at 50% 100%,#5d265444,transparent 40%),var(--bg);
   overflow-x:hidden;
 }
-body::before{
+body:before{
   content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   background-image:
-    radial-gradient(2px 2px at 10% 20%,white,transparent),
-    radial-gradient(1px 1px at 35% 70%,white,transparent),
-    radial-gradient(2px 2px at 70% 18%,#d6c5ff,transparent),
-    radial-gradient(1px 1px at 82% 82%,white,transparent),
-    radial-gradient(2px 2px at 55% 45%,#a8efff,transparent);
-  background-size:280px 260px;
-  animation:stars 7s ease-in-out infinite alternate;
+    radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+    radial-gradient(1px 1px at 90px 100px,#fff,transparent),
+    radial-gradient(2px 2px at 180px 80px,#d9c5ff,transparent),
+    radial-gradient(1px 1px at 250px 170px,#fff,transparent);
+  background-size:280px 220px;animation:twinkle 5s infinite alternate;
 }
-@keyframes stars{from{opacity:.3}to{opacity:.95}}
-@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-@keyframes wiggle{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
-@keyframes pop{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+@keyframes twinkle{from{opacity:.35}to{opacity:1}}
+@keyframes float{50%{transform:translateY(-9px)}}
+@keyframes enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes wiggle{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+@keyframes pop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
 button{font:inherit;cursor:pointer}
 button:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 header{
   max-width:1050px;margin:auto;padding:22px;
-  display:flex;justify-content:space-between;gap:12px;
-  color:var(--muted);font-size:.78rem;letter-spacing:.12em;
+  display:flex;justify-content:space-between;align-items:center;
+  color:var(--muted);font-size:.75rem;letter-spacing:.13em;
 }
 header strong{color:var(--gold)}
-main{
-  width:min(920px,calc(100% - 32px));min-height:78vh;
-  margin:auto;display:flex;align-items:center;justify-content:center;
-  padding:16px 0 40px;
-}
-.scene{width:100%;animation:appear .4s ease both}
-h1,h2{font-family:Georgia,serif;font-weight:400;letter-spacing:-.035em}
-h1{font-size:clamp(2.8rem,8vw,5.6rem);line-height:1.02;margin:20px 0}
-h2{font-size:clamp(2.1rem,5vw,3.6rem);line-height:1.08;margin:12px 0 20px}
-h3{font-family:Georgia,serif;font-weight:400}
-p{color:#d8d2ec;line-height:1.85}
-em{color:var(--gold);font-style:normal}
-.eyebrow{color:var(--cyan);font-size:.72rem;font-weight:700;letter-spacing:.19em;text-transform:uppercase}
+main{width:min(940px,calc(100% - 28px));margin:auto;min-height:80vh;padding:16px 0 45px}
+.scene{animation:enter .4s ease both}
 .hero{text-align:center;padding:30px 0}
-.hero p{max-width:580px;margin:0 auto 24px}
-.cosmos{position:relative;width:175px;height:175px;margin:0 auto 25px;display:grid;place-items:center;animation:float 5s ease-in-out infinite}
-.core{width:95px;height:95px;border-radius:50%;background:radial-gradient(circle at 28% 25%,#fff,#c9a9ff 15%,#7251c9 45%,#14163e 78%);box-shadow:0 0 30px #9e7aff88,0 0 85px #7554d455}
-.orbit{position:absolute;width:165px;height:60px;border:1px solid #d4c8ff99;border-radius:50%;transform:rotate(-28deg)}
-.orbit.two{width:145px;height:95px;transform:rotate(45deg);border-color:#89eaff66}
-.moon{position:absolute;top:20px;right:12px;width:21px;height:21px;border-radius:50%;background:radial-gradient(circle at 30% 25%,white,#ffdca0 50%,#a477cb);box-shadow:0 0 18px #ffdca0}
-.panel{padding:clamp(22px,5vw,42px);border:1px solid var(--border);border-radius:24px;background:linear-gradient(145deg,#191940e8,#090b20ed);box-shadow:0 20px 70px #0005}
-.btn{border:1px solid #c8baff66;background:#171735;color:var(--text);border-radius:999px;padding:12px 18px;transition:.2s}
-.btn:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 0 20px #9d7bff30}
-.btn.primary{color:#17132b;background:linear-gradient(110deg,#ffe8b0,#d9c1ff);border:none;font-weight:750}
-.btn.ghost{background:transparent}
-.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:25px}
-.planet-map{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:25px 0}
-.planet-link{min-height:145px;padding:12px 5px;border:1px solid transparent;border-radius:18px;background:transparent;color:var(--text);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;transition:.25s}
-.planet-link:hover{border-color:var(--border);background:#b7a5ff0c;transform:translateY(-4px)}
-.planet{width:63px;height:63px;border-radius:50%;box-shadow:0 0 25px #9f80ff35;position:relative;transition:transform .3s}
-.planet-link:hover .planet{transform:scale(1.12) rotate(12deg)}
-.planet::after{content:"";position:absolute;inset:15px -7px;border:1px solid #ffffff77;border-radius:50%;transform:rotate(-28deg)}
-.p1{background:radial-gradient(circle at 28% 25%,#f5d9ff,#9875db 30%,#25234f 78%)}
-.p2{background:radial-gradient(circle at 28% 25%,#fff3c9,#d9a45f 30%,#493064 78%)}
-.p3{background:radial-gradient(circle at 28% 25%,#d4ffff,#4da6bc 30%,#14294d 78%)}
-.p4{background:radial-gradient(circle at 28% 25%,#ffe4f4,#e98bb9 30%,#49265d 78%)}
-.p5{background:radial-gradient(circle at 28% 25%,#fff8dc,#c3a4d8 30%,#33345f 78%)}
-.p6{background:radial-gradient(circle at 28% 25%,#f7f3ff,#aeb4e6 30%,#282d62 78%)}
-.planet-name{font-size:.9rem;font-weight:700}
-.planet-caption{color:#a9a4ca;font-size:.68rem}
-.chapter-head{display:flex;align-items:center;gap:14px;margin-bottom:25px}
-.chapter-icon{width:48px;height:48px;flex:none;display:grid;place-items:center;border-radius:50%;border:1px solid var(--border);background:#bba7ff12;font-size:1.4rem}
-.chapter-head h2{margin:6px 0 0}
-.split{display:grid;grid-template-columns:1fr .85fr;gap:25px}
-.quote{border-left:2px solid var(--pink);padding:7px 0 7px 17px;color:#f5d9ee;font:1.35rem/1.55 Georgia,serif;margin:18px 0 24px}
-.stamp{display:inline-block;border:1px solid #a8efff55;border-radius:999px;padding:8px 11px;color:var(--cyan);font-size:.7rem;letter-spacing:.08em}
-.stars-line{margin-top:25px;color:var(--gold);letter-spacing:.4em;font-size:1.3rem}
-.progress{height:3px;background:#ffffff15;border-radius:9px;margin-bottom:22px;overflow:hidden}
-.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--lilac),var(--cyan))}
+.eyebrow{color:var(--blue);font-size:.7rem;letter-spacing:.18em;font-weight:750;text-transform:uppercase}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:400}
+h1{font-size:clamp(2.7rem,8vw,5.5rem);line-height:1.03;letter-spacing:-.04em;margin:22px 0}
+h2{font-size:clamp(2.1rem,5vw,3.5rem);line-height:1.08;margin:12px 0 22px}
+h3{font-size:1.45rem}
+p{line-height:1.85;color:#dcd5ee}
+em{font-style:normal;color:var(--gold)}
+.hero p{max-width:620px;margin:0 auto 24px}
+.cosmos{width:165px;height:165px;position:relative;display:grid;place-items:center;margin:0 auto 27px;animation:float 5s ease-in-out infinite}
+.core{width:94px;height:94px;border-radius:50%;background:radial-gradient(circle at 28% 25%,white,#d9c6ff 13%,#8e67db 38%,#29204f 78%);box-shadow:0 0 45px #9e7aff88,0 0 95px #7754d444}
+.orbit{position:absolute;width:165px;height:62px;border:1px solid #dfd0ff99;border-radius:50%;transform:rotate(-30deg)}
+.orbit.two{width:145px;height:98px;transform:rotate(45deg);border-color:#a8efff66}
+.moon{position:absolute;top:16px;right:7px;width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 30% 25%,white,#ffdda0 50%,#9871b8);box-shadow:0 0 18px #ffe3a3}
+.panel{background:linear-gradient(145deg,#1b1839f2,#0d0b21f2);border:1px solid var(--line);border-radius:25px;padding:clamp(22px,5vw,42px);box-shadow:0 24px 80px #0005}
+.btn{border:1px solid #cbb8ff65;background:#17152f;color:var(--text);border-radius:999px;padding:12px 18px;transition:.2s}
+.btn:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 0 22px #b59aff22}
+.primary{background:linear-gradient(110deg,#ffe6a6,#d8c4ff);color:#211634;border:0;font-weight:750}
+.ghost{background:transparent}
+.actions{display:flex;gap:11px;flex-wrap:wrap;justify-content:center;margin-top:24px}
+.planet-map{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:24px 0}
+.planet-link{min-height:145px;background:transparent;color:var(--text);border:1px solid transparent;border-radius:19px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;transition:.25s}
+.planet-link:hover{border-color:var(--line);background:#c8b4ff0b;transform:translateY(-4px)}
+.planet{position:relative;width:67px;height:67px;border-radius:50%;box-shadow:0 0 30px #b7a2ff35}
+.planet:after{content:"";position:absolute;inset:15px -7px;border:1px solid #ffffff7c;border-radius:50%;transform:rotate(-28deg)}
+.p1{background:radial-gradient(circle at 27% 24%,#f8e5ff,#a57cdd 34%,#24204b 80%)}
+.p2{background:radial-gradient(circle at 27% 24%,#fff4c9,#e0a96a 34%,#4c285b 80%)}
+.p3{background:radial-gradient(circle at 27% 24%,#dcffff,#58b8c6 34%,#142746 80%)}
+.p4{background:radial-gradient(circle at 27% 24%,#ffe5f4,#eb8fbd 34%,#4d265d 80%)}
+.p5{background:radial-gradient(circle at 27% 24%,#fff9df,#bca4de 34%,#31325c 80%)}
+.p6{background:radial-gradient(circle at 27% 24%,#f5f4ff,#a9c1eb 34%,#242b5b 80%)}
+.planet-name{font-size:.9rem;font-weight:750}
+.planet-caption{font-size:.66rem;color:#aaa2ca;letter-spacing:.08em}
+.chapter-head{display:flex;gap:14px;align-items:center;margin-bottom:24px}
+.chapter-icon{width:50px;height:50px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;background:#cbb8ff10;font-size:1.4rem;flex-shrink:0}
+.chapter-head h2{margin:5px 0 0}
+.split{display:grid;grid-template-columns:1fr .8fr;gap:25px}
+.quote{border-left:2px solid var(--pink);padding:7px 0 7px 17px;color:#f8dcef;font:1.35rem/1.55 Georgia,serif;margin:20px 0}
+.stamp{display:inline-block;border:1px solid #a8efff55;border-radius:999px;padding:8px 11px;color:var(--blue);font-size:.67rem;letter-spacing:.08em}
+.stars-line{font-size:1.25rem;color:var(--gold);letter-spacing:.35em;margin-top:25px}
+.progress{height:3px;background:#ffffff17;border-radius:9px;margin-bottom:20px;overflow:hidden}
+.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--purple),var(--blue))}
 .nav-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:30px}
-.page-count{color:#a6a0c8;font-size:.8rem}
+.page-count{font-size:.78rem;color:#a6a0c8}
+.note{border:1px dashed #ffe3a366;padding:15px;border-radius:15px;color:var(--gold);margin-top:18px;line-height:1.7}
+.sla{border:1px solid var(--line);border-radius:17px;background:#0c0b22;padding:17px;margin-top:22px}
+.sla-title{font-size:.68rem;color:var(--blue);letter-spacing:.14em;font-weight:800}
+.sla ul{list-style:none;padding:0;margin:12px 0 0}
+.sla li{padding:9px 0;border-bottom:1px solid #ffffff10;color:#ddd5f0}
+.sla li:last-child{border-bottom:0}
+.sla li:before{content:"✦ ";color:var(--gold)}
 .answer-list{display:grid;gap:10px;margin:20px 0}
-.answer{width:100%;text-align:left;padding:14px 16px;border-radius:14px;border:1px solid #bcb2e344;background:#11132f;color:#eee8ff}
+.answer{width:100%;text-align:left;background:#100f29;color:var(--text);border:1px solid var(--line);padding:14px;border-radius:13px}
 .answer:hover{border-color:var(--gold)}
-.answer.correct{border-color:#a9f0cf;background:#15372f}
-.answer.wrong{border-color:#ffb6dc;background:#391b38}
-.feedback{color:var(--gold);min-height:28px;font-size:.9rem}
-.memory-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
-.memory{border:1px solid #bdb0e333;background:#10122d;border-radius:15px;padding:17px;color:var(--text);text-align:left;transition:.2s}
+.answer.correct{border-color:#9be7c4;background:#17342d}
+.answer.wrong{border-color:var(--pink);background:#3c1a37}
+.feedback{color:var(--gold);min-height:30px;font-size:.9rem;line-height:1.6;margin-top:14px}
+.memory-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:23px}
+.memory{padding:18px;border-radius:16px;text-align:left;background:#11102a;border:1px solid var(--line);color:var(--text);transition:.2s}
 .memory:hover{transform:translateY(-3px);border-color:var(--pink)}
-.memory b{display:block;margin-bottom:7px;color:#f4e6ff}
-.memory span{color:#c8c0df;font-size:.9rem;line-height:1.6}
-.airport-sky{height:145px;position:relative;margin:10px 0 25px;border-bottom:1px solid #d9d0ff35;background:linear-gradient(180deg,transparent,#17153677)}
-.airport-sky::before{content:"";position:absolute;width:150px;height:150px;border:1px solid #d8c8ff38;border-radius:50%;left:50%;top:15px;transform:translateX(-50%)}
-.airport-sky::after{content:"✦";position:absolute;left:50%;top:40px;color:#ffe9b0;font-size:1.8rem;text-shadow:0 0 20px #ffe9b0;animation:stars 2s infinite alternate}
-.final-orbit{display:flex;align-items:center;justify-content:center;gap:22px;margin:28px 0;font-size:2rem}
-.final-orbit i{width:90px;height:1px;background:linear-gradient(90deg,transparent,#cbbaff,transparent)}
-.secret{display:none;margin-top:18px;padding:15px;border:1px dashed #ffe6a655;border-radius:14px;color:var(--gold);animation:pop .3s ease}
-.secret.show{display:block}
-footer{text-align:center;color:#8e89ae;font-size:.75rem;padding:0 16px 24px}
+.memory b{display:block;color:#f5e7ff;margin-bottom:8px}
+.memory span{font-size:.88rem;line-height:1.6;color:#c7bfdc}
+.sky{height:130px;position:relative;margin:10px 0 22px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,transparent,#17153677)}
+.sky:before{content:"";position:absolute;width:140px;height:140px;border:1px solid #d8c8ff38;border-radius:50%;left:50%;top:8px;transform:translateX(-50%)}
+.sky:after{content:"✦";position:absolute;left:50%;top:30px;color:var(--gold);font-size:1.9rem;text-shadow:0 0 22px var(--gold);animation:float 3s infinite}
+.secret{display:none}
+.secret.show{display:block;animation:pop .25s ease}
+footer{text-align:center;padding:0 16px 24px;color:#8e89ae;font-size:.75rem}
 @media(max-width:650px){
- header{padding:16px;font-size:.68rem}header span{display:none}
- main{width:calc(100% - 24px);align-items:flex-start;padding-top:15px}
- .hero{padding-top:20px}.planet-map{grid-template-columns:repeat(2,1fr);gap:5px}
- .planet-link{min-height:130px}.planet{width:57px;height:57px}
- .panel{padding:22px 17px;border-radius:20px}
- .split{grid-template-columns:1fr;gap:8px}.memory-grid{grid-template-columns:1fr}
- .nav-row .btn{padding:11px 13px;font-size:.85rem}
- .chapter-head h2{font-size:2.05rem}
+  header{padding:17px;font-size:.67rem}header span{display:none}
+  main{width:calc(100% - 22px);padding-top:12px}
+  .panel{padding:22px 17px;border-radius:20px}
+  .planet-map{grid-template-columns:repeat(2,1fr);gap:4px}
+  .planet-link{min-height:125px}.planet{width:58px;height:58px}
+  .split{grid-template-columns:1fr;gap:8px}
+  .memory-grid{grid-template-columns:1fr}
+  .chapter-head h2{font-size:2rem}
+  .nav-row .btn{padding:10px 12px;font-size:.82rem}
 }
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -141,287 +138,261 @@ footer{text-align:center;color:#8e89ae;font-size:.75rem;padding:0 16px 24px}
 <footer>Made of stardust, silly theories, late-night conversations, and one beginning. ✦</footer>
 
 <script>
-const pages = [
-  {id:"home",label:"Home",icon:"✦"},
-  {
-    id:"origin",label:"The Beginning",icon:"☄",
-    eyebrow:"ORBIT 01 · THE FIRST HELLO",
-    title:"A stands for Amazing.",
-    body:[
-      "We met on Schmooze on October 11, 2025. Somehow, a swipe became a conversation that kept finding reasons to continue.",
-      "You asked why I was joining a job at 21. We talked placements, the roles I wanted, and what kind of work I hoped to do. You offered a referral and started planning hiring strategies in your head.",
-      "Then came <em>Mission Jobs</em>: your mission to help me land a job before November 1. I didn’t know it then, but I was meeting someone who would take my little ambitions seriously."
-    ],
-    quote:"“Swiping right on me has perks.”",
-    tag:"THE DAY THE UNIVERSE GOT INTERESTING"
-  },
-  {
-    id:"voice",label:"First Voice",icon:"☄",
-    eyebrow:"ORBIT 02 · A VOICE IN THE DARK",
-    title:"A voice, before a face-to-face.",
-    body:[
-      "On October 12, you asked me out before leaving for Delhi. I said no because I had classes. We ended up deciding on a Google Meet to discuss my resume instead.",
-      "It was the first time I heard your voice. Calm, comfortable, not awkward at all. The kind of ordinary moment that quietly becomes a favourite memory.",
-      "Then came the Instagram Blend, WhatsApp, and conversations that made one date roll into the next."
-    ],
-    quote:"“We are in the same team.”",
-    tag:"SAME TEAM ALWAYS"
-  },
-  {
-    id:"batman",label:"Batman Lore",icon:"🪐",
-    eyebrow:"ORBIT 03 · BATMAN'S OPENING STATEMENTS",
-    title:"He came with terms and conditions.",
-    body:[
-      "You had a no-divorce policy, two-kids opinions, and a very serious question about waking up beside you every day for the next 50 years.",
-      "You asked for seven kisses a day. Not one. Not two. <em>Seven.</em> You also said you would say good morning every day and kept sending memes like it was part of your job description.",
-      "And then we got to your post-50 career plan. You'd told me you wanted to become a therapist after turning 50, so I encouraged you to go for it. A perfectly normal conversation about a future dream… until you brought my hypothetical husband into it.",
-      "Your question was whether it would be okay with me if my husband came home by 2 AM every day. SIR. We were discussing your dream career. Why was I suddenly in a future-wife compatibility interview?",
-      "The funny part is that your dream had somehow become a little imaginary future for us to discuss: your work, your hours, and what sharing a life around that might look like. Batman was planning his post-50 career; I was apparently already in the wife interview round.",
-      "You could turn flirting into a policy discussion, a SWOT analysis, or a debate about marriage logistics. Very Batman of you."
-    ],
-    quote:"“Aren’t you scared of waking up to me every day for the next 50 years?”",
-    tag:"THE FINE PRINT WAS EXTENSIVE"
-  },
-  {
-    id:"applebee",label:"Apple-Bee",icon:"🍎",
-    eyebrow:"ORBIT 04 · THE APPLE-BEE THEORY",
-    title:"A very important scientific discovery.",
-    body:[
-      "You once explained that the bee doesn’t have to get honey only from flowers. It can get sweetness from an apple, too.",
-      "Somewhere between economics, diminishing marginal utility, and your management brain, you became the philosopher of this tiny universe."
-    ],
-    quote:"“That bee doesn’t need to eat honey from the flowers but also from the apple.”",
-    tag:"A THEORY THAT DESERVES ITS OWN CONSTELLATION"
-  },
-  {
-    id:"bee",label:"Bee Lore",icon:"🐝",
-    eyebrow:"ORBIT 05 · THE BEE FILES",
-    title:"The tiny things that became us.",
-    body:[
-      "You called me mommy because I told you to eat like your mom. Then came Monica Geller comparisons, panda ma, and me becoming Panda Bee because we kept talking until 2 AM.",
-      "You sent tiny flowers in a sticker, kiss emojis to make me blush, and stars when I did something well became our little reward system.",
-      "You were jealous of Jackson Wang, didn’t want a future cat or dog stealing my attention, and said “the cute” so often it became a whole category."
-    ],
-    quote:"“The cat will always land on its feet.”",
-    tag:"A COMPLETELY SCIENTIFIC BEE ARCHIVE"
-  },
-  {id:"memories",label:"Tiny Universes",icon:"✨",
-   eyebrow:"ORBIT 06 · LITTLE THINGS, BIG GRAVITY",
-   title:"A museum of the very specific.",
-   tag:"COLLECTED FROM OUR EARLY DAYS"},
-  {
-    id:"diwali",label:"The Airport Star",icon:"✈",
-    eyebrow:"ORBIT 07 · THE DIWALI FLIGHT",
-    title:"One star, travelling away.",
-    body:[
-      "You had an early-morning flight to Delhi. We made a bet about whether you’d reach the airport early or just in time. You reached early, so naturally, I decided I had won because you were a gentleman.",
-      "I waited at my window, hoping to say goodbye until your plane took off. We wondered which direction it would go, even though it didn’t fly over Anna University.",
-      "That was the day I sent you a voice note for the first time. You sent one back. A little piece of each of us travelled through the night."
-    ],
-    quote:"Some goodbyes are tiny, but the memory keeps glowing.",
-    tag:"A QUIET LITTLE STAR IN OUR SKY"
-  },
-  {
-    id:"safe",label:"Same Team",icon:"🌙",
-    eyebrow:"ORBIT 08 · THE SOFTER THINGS",
-    title:"A place to be yourself.",
-    body:[
-      "You told me I was your safe space, and that you were mine. That I could be myself even if you never became my boyfriend.",
-      "You said, “Why make war when you can make love.” You told me we were on the same team. Sometimes the simplest sentences are the ones that stay with you.",
-      "This chapter isn’t a prediction about the future. It’s a little place to keep what those words meant when we first heard them."
-    ],
-    quote:"“We are in the same team.”",
-    tag:"A MEMORY, HELD GENTLY"
-  },
-  {
-    id:"end",label:"Time Capsule",icon:"🌌",
-    eyebrow:"OCTOBER 11, 2025 · TIME CAPSULE",
-    title:"The day our little universe began.",
-    body:[
-      "This isn’t the whole story. It’s the first constellation: a Schmooze hello, an Amazing question, Mission Jobs, a few impossible theories, and two people discovering how easy it was to keep talking.",
-      "Somewhere in the vastness of everything, this day happened. And I wanted to give it a little sky of its own."
-    ],
-    quote:"To the beginning — exactly as it was.",
-    tag:"END OF THIS LITTLE TOUR · NOT THE MEMORY"
-  }
+const chapters=[
+ {id:"origin",label:"The First Hello",icon:"☄",eyebrow:"ORBIT 01 · THE FIRST HELLO",
+ title:"A stands for Amazing.",
+ body:[
+ "We met on Schmooze on October 11, 2025. One right swipe later, I was unknowingly entering a long-term conversation with a man who apparently considered my employment status a personal mission.",
+ "You asked why I was joining a job at 21. Most people say, “Oh, nice.” You opened a mental Excel sheet and started planning my career.",
+ "Then came Mission Jobs. Deadline: November 1. Stakeholder: Batman. Project owner: also Batman. Bee had not even completed onboarding."
+ ],quote:"“Swiping right on me has perks.”",
+ tag:"OFFICIAL INCIDENT REPORT",
+ side:"The perks included unsolicited career consulting. The terms and conditions were not disclosed."},
+
+ {id:"voice",label:"The First Voice",icon:"🎙️",eyebrow:"ORBIT 02 · THE FIRST VOICE",
+ title:"A meeting that was definitely about the resume.",
+ body:[
+ "You asked me out before leaving for Delhi. I said no because I had classes. Batman immediately pivoted to a Google Meet to discuss my resume.",
+ "A completely professional meeting. Very normal. Absolutely no suspicious circumstances.",
+ "It was the first time I heard your voice. And somehow, a resume review became one of those tiny moments that would get its own dedicated planet on a website almost a year later."
+ ],quote:"“We are in the same team.”",
+ tag:"TEAM STRUCTURE: QUESTIONABLE",
+ side:"The team had two members, zero formal onboarding, and an alarming number of conversations."},
+
+ {id:"batman",label:"Batman Lore",icon:"🦇",eyebrow:"ORBIT 03 · BATMAN'S TERMS & CONDITIONS",
+ title:"Romance, subject to policy approval.",
+ body:[
+ "No-divorce policy. Two-kids opinions. Seven kisses per day. Good morning messages as a recurring deliverable.",
+ "And then, with the confidence of a man presenting his five-year strategic plan, you asked whether I was scared of waking up beside you for the next 50 years.",
+ "Sir. We had barely finished the introductory chapter.",
+ "Batman was out here discussing the lifetime subscription before Bee had even located the cancellation policy."
+ ],quote:"“Aren’t you scared of waking up to me every day for the next 50 years?”",
+ tag:"PROPOSED SERVICE-LEVEL AGREEMENT",
+ side:"The fine print was extensive.",
+ list:["Daily kisses: 7","Good morning messages: recurring","Children: 2, subject to future discussions","Contract duration: 50 years","Legal department: Batman himself"],
+ extraTitle:"🦇 THE 2 AM HUSBAND CLAUSE",
+ extra:[
+ "Somewhere in a conversation about his dream of becoming a therapist after turning 50, I apparently had to attend a surprise compatibility interview.",
+ "I asked him to pursue the dream he'd talked about.",
+ "And then came the question:"
+ ],extraQuote:"“Is it okay for you if your husband comes home by 2 AM every day?”",
+ extraAfter:[
+ "SIR. 😭",
+ "We were discussing your career dream. How did I end up negotiating the working hours of my hypothetical future husband?",
+ "But underneath the ridiculousness was something rather sweet: we were imagining a future where he actually became that therapist, and I was being asked whether I could picture a life with him and the realities of that dream."
+ ],extraEnd:"Batman: planning his post-50 career.\nMe: apparently already in the wife interview round.",
+ extraTag:"NO HR DEPARTMENT COULD HAVE PREPARED ME FOR THIS."},
+
+ {id:"applebee",label:"Apple-Bee Science",icon:"🍎",eyebrow:"ORBIT 04 · APPLE-BEE SCIENCE",
+ title:"Einstein could never.",
+ body:[
+ "Batman explained that a bee doesn't need to get sweetness only from flowers. It can get sweetness from an apple, too.",
+ "Somewhere between economics, diminishing marginal utility, and whatever was happening in that man's brain, we accidentally founded a new branch of science.",
+ "NASA, if you're reading this, please fund our research."
+ ],quote:"“That bee doesn’t need to eat honey from the flowers but also from the apple.”",
+ tag:"PEER REVIEW PENDING",
+ side:"The bee has declined to comment.",
+ quiz:true},
+
+ {id:"bee",label:"The Bee Files",icon:"🐝",eyebrow:"ORBIT 05 · THE BEE FILES",
+ title:"One girl. Approximately 47 nicknames.",
+ body:[
+ "First, mommy. Then Monica Geller. Then panda ma. Then Panda Bee.",
+ "At some point, I stopped being a person and became a franchise with multiple spin-offs.",
+ "Jackson Wang was a threat to national security. Future cats and dogs were potential competitors for your attention allocation. And “the cute” somehow became a category of its own."
+ ],quote:"“The cat will always land on its feet.”",
+ tag:"SCIENTIFIC FINDINGS",
+ side:"The cat has survival instincts. Batman has jealousy. Only one of these is a scientifically established phenomenon."},
+
+ {id:"memories",label:"Tiny Universes",icon:"✨",eyebrow:"ORBIT 06 · TINY UNIVERSES",
+ title:"Evidence that we needed supervision.",
+ body:[
+ "None of these events would survive a normal person's attempt to explain them. Which is precisely why they belong in a museum."
+ ],tag:"THE MUSEUM IS NOW OPEN",museum:true},
+
+ {id:"diwali",label:"The Diwali Flight",icon:"✈️",eyebrow:"ORBIT 07 · THE DIWALI FLIGHT",
+ title:"Airport logistics, starring two clowns.",
+ body:[
+ "You had an early flight to Delhi. We made a bet about whether you'd reach the airport early or just in time.",
+ "You reached early. I declared myself the winner anyway because you were a gentleman.",
+ "I was at my window trying to say goodbye to a plane I couldn't even reliably predict the direction of. It didn't fly over Anna University, which was apparently relevant to our aviation research.",
+ "And then we exchanged our first voice notes."
+ ],quote:"FLIGHT STATUS: DEPARTED.",
+ tag:"NO AIR-TRAFFIC-CONTROL AUTHORITY",
+ side:"Passenger transported to Delhi. One voice note delivered. One Bee stationed at a window with absolutely no air-traffic-control authority.",sky:true},
+
+ {id:"safe",label:"Same Team",icon:"🌙",eyebrow:"ORBIT 08 · SAME TEAM",
+ title:"Feelings entered the chat.",
+ body:[
+ "You told me I was your safe space, and that you were mine. That I could be myself even if you never became my boyfriend.",
+ "Then came “Why make war when you can make love?” and “We are in the same team.”",
+ "For once, Batman stopped presenting policy documents and said something soft."
+ ],quote:"“We are in the same team.”",
+ tag:"A MEMORY, HELD GENTLY",
+ side:"No jokes here for a second. Some memories deserve to be held gently, not turned into a punchline."},
+
+ {id:"end",label:"The Time Capsule",icon:"🌌",eyebrow:"FINAL ORBIT · TIME CAPSULE",
+ title:"And that's how the lore began.",
+ body:[
+ "October 11, 2025. One swipe. One Amazing question. One man who apparently moonlighted as a career counsellor, economist, aviation analyst, and marriage-policy consultant.",
+ "One girl who came for a conversation and accidentally became a recurring character in all of the above.",
+ "The universe is enormous. The odds of meeting are ridiculous. And somehow, ours began with a swipe on Schmooze."
+ ],quote:"END OF CHAPTER ONE.",
+ tag:"THE BATMAN REMAINS UNDER INVESTIGATION.",
+ side:"The lore is extensive. The documentation is incomplete."}
 ];
 
-let current = "home";
-const app = document.getElementById("app");
+const exhibits=[
+ ["“Avan kedakuran.”","The manager apparently wasn't going to stop the talking.","A tiny work-hours rebellion in the name of talking to Bee."],
+ ["The perfect crime","Two people stealing each other's hearts and somehow neither pressing charges.","A flawless heist. The authorities remain confused."],
+ ["The tiger thought","Handling a tiger is easier than thinking about handling a tiger.","Batman briefly became Buddha. Briefly."],
+ ["The Delhi house","A house tour that somehow included being jealous of your own dad.","A deeply niche entry in the Batman files."],
+ ["Jackson Wang","Celebrity-crush jealousy was apparently a serious matter.","Jackson Wang was placed under observation."],
+ ["Diminishing marginal utility","Even flirting could turn into an economics lesson.","Romance, but make it a lecture."],
+ ["The Green Lantern reference","A story about asking someone to marry you after two days because you already knew, but didn't want to startle her.","Fastest proposal timeline in the cinematic universe."],
+ ["The pet policy","Future cats and dogs were potential competitors for attention.","All prospective pets must submit an application."]
+];
 
-function button(text,action,cls="btn"){
-  return `<button class="${cls}" data-action="${action}">${text}</button>`;
+let current="home";
+const app=document.getElementById("app");
+
+function btn(label,action,cls="btn"){
+ return `<button class="${cls}" data-action="${action}">${label}</button>`;
 }
-function pageNumber(){return pages.findIndex(p=>p.id===current)}
-function navRow(){
-  const i=pageNumber();
-  const prev=i>0?pages[i-1]:null;
-  const next=i<pages.length-1?pages[i+1]:null;
-  return `<div class="nav-row">
-    ${button("← Galaxy","map","btn ghost")}
-    <span class="page-count">${Math.max(1,i)} / ${pages.length-1}</span>
-    ${next?button("Next chapter →","next","btn primary"):button("Galaxy map ✦","map","btn primary")}
-  </div>`;
+function chapterIndex(){return chapters.findIndex(c=>c.id===current)}
+function nav(){
+ const i=chapterIndex();
+ const prev=i>0?chapters[i-1]:null;
+ const next=i<chapters.length-1?chapters[i+1]:null;
+ return `<div class="nav-row">
+  ${btn("← Galaxy map","map","btn ghost")}
+  <span class="page-count">${i+1} / ${chapters.length}</span>
+  ${next?btn("Next orbit →","next","btn primary"):btn("Finish the tour ✦","map","btn primary")}
+ </div>`;
 }
-function heading(p){
-  return `<div class="chapter-head">
-    <div class="chapter-icon">${p.icon}</div>
-    <div><div class="eyebrow">${p.eyebrow}</div><h2>${p.title}</h2></div>
-  </div>`;
+function head(c){
+ return `<div class="chapter-head"><div class="chapter-icon">${c.icon}</div>
+ <div><div class="eyebrow">${c.eyebrow}</div><h2>${c.title}</h2></div></div>`;
 }
 function progress(){
-  return `<div class="progress"><span style="width:${(pageNumber()+1)/pages.length*100}%"></span></div>`;
+ return `<div class="progress"><span style="width:${(chapterIndex()+1)/chapters.length*100}%"></span></div>`;
 }
-function renderHome(){
-  app.innerHTML=`<section class="scene hero">
-    <div class="cosmos" aria-hidden="true"><div class="orbit"></div><div class="orbit two"></div><div class="core"></div><div class="moon"></div></div>
-    <div class="eyebrow">A TIME CAPSULE · 11 OCTOBER 2025</div>
-    <h1>Somewhere in this universe,<br><em>Batman met Bee.</em></h1>
-    <p>One hello on Schmooze. A hundred little things that followed. This is a tiny galaxy made just for the beginning of our story.</p>
-    <div class="actions">${button("Enter our galaxy ✦","map","btn primary")}</div>
-    <p style="font-size:.78rem;color:#928caf;margin-top:18px">Tap a planet. Open a memory. Please mind the occasional Batman nonsense.</p>
-  </section>`;
+function home(){
+ app.innerHTML=`<section class="scene hero">
+  <div class="cosmos"><div class="orbit"></div><div class="orbit two"></div><div class="core"></div><div class="moon"></div></div>
+  <div class="eyebrow">A TIME CAPSULE · 11 OCTOBER 2025</div>
+  <h1>Somewhere in this universe,<br><em>Batman met Bee.</em></h1>
+  <p>One hello on Schmooze. A whole cinematic universe of career consulting, suspiciously early future planning, questionable economics, and tiny moments worth keeping.</p>
+  <div class="actions">${btn("Enter our galaxy ✦","map","btn primary")}</div>
+  <p style="font-size:.78rem;color:#938bad;margin-top:18px">Tap a planet. Open a memory. Batman's terms and conditions are non-negotiable.</p>
+ </section>`;
 }
-function renderMap(){
-  app.innerHTML=`<section class="scene panel">
-    <div class="eyebrow">CHOOSE YOUR DESTINATION</div>
-    <h2>Our little galaxy.</h2>
-    <p>Every planet holds a chapter. Click one to travel there. No automatic space travel; you are in control.</p>
-    <div class="planet-map">
-      ${pages.filter(p=>p.id!=="home").map((p,i)=>`
-        <button class="planet-link" data-go="${p.id}">
-          <span class="planet p${i%6+1}"></span>
-          <span class="planet-name">${p.label}</span>
-          <span class="planet-caption">${String(i+1).padStart(2,"0")} · OPEN MEMORY</span>
-        </button>`).join("")}
-    </div>
-    ${button("Start from the beginning →","go-origin","btn primary")}
-    <div style="margin-top:20px;text-align:center">
-      <button class="btn ghost" data-action="surprise">🎲 Random memory</button>
-      <button class="btn ghost" data-action="secret">🦇 Classified Batman file</button>
-      <div id="secret" class="secret">CLASSIFIED: Batman has been accused of turning ordinary conversations into long-term strategic planning. Further investigation is ongoing. 🕵️</div>
-    </div>
-  </section>`;
+function map(){
+ app.innerHTML=`<section class="scene panel">
+  <div class="eyebrow">CHOOSE YOUR DESTINATION</div><h2>Our little galaxy.</h2>
+  <p>Every planet contains one chapter of the lore. Travel at your own pace. The universe has no attendance policy.</p>
+  <div class="planet-map">${chapters.map((c,i)=>`<button class="planet-link" data-go="${c.id}">
+   <span class="planet p${i%6+1}"></span><span class="planet-name">${c.label}</span>
+   <span class="planet-caption">ORBIT ${String(i+1).padStart(2,"0")} · EXPLORE</span></button>`).join("")}</div>
+  <div class="actions">${btn("Start from the beginning →","go-origin","btn primary")}
+  ${btn("🎲 Random memory","random","btn")}
+  ${btn("🦇 Tap for classified files","secret","btn ghost")}</div>
+  <div id="secret" class="note secret">CLASSIFIED: Batman has been accused of turning casual conversations into long-term strategic planning. He is also suspected of bringing up a 50-year subscription before the trial period ended. 🕵️</div>
+ </section>`;
 }
-function renderStory(p){
-  app.innerHTML=`<section class="scene">${progress()}<div class="panel">
-    ${heading(p)}
-    <div class="split">
-      <div>${p.body.map(t=>`<p>${t}</p>`).join("")}</div>
-      <div><div class="quote">${p.quote}</div><span class="stamp">${p.tag}</span><div class="stars-line">✦ · ˚ ✧ ˚ · ✦</div>
-      <p style="font-size:.82rem;color:#a9a4ca">Official rating: 10/10 lore, 0/10 ability to stay on topic.</p></div>
-    </div>
-    ${navRow()}
-  </div></section>`;
+function renderStory(c){
+ let extra="";
+ if(c.list)extra+=`<div class="sla"><div class="sla-title">${c.tag}</div><ul>${c.list.map(x=>`<li>${x}</li>`).join("")}</ul></div>`;
+ if(c.extraTitle){
+  extra+=`<div class="note"><h3 style="margin-top:0">${c.extraTitle}</h3>
+  ${c.extra.map(x=>`<p>${x}</p>`).join("")}
+  <div class="quote">${c.extraQuote}</div>
+  ${c.extraAfter.map(x=>`<p>${x}</p>`).join("")}
+  <p style="white-space:pre-line;color:var(--gold);font-weight:700">${c.extraEnd}</p>
+  <div class="eyebrow">${c.extraTag}</div></div>`;
+ }
+ if(c.quiz){
+  extra+=`<div class="sla"><div class="sla-title">THE INTERGALACTIC BEE INSTITUTE 🍎🐝</div>
+  <p>What was Batman trying to say with the Apple-Bee theory?</p>
+  <div class="answer-list">
+   <button class="answer" data-answer="wrong">Bees should stop visiting flowers.</button>
+   <button class="answer" data-answer="correct">Sweetness can come from more than one place.</button>
+   <button class="answer" data-answer="wrong">Apple is scientifically better than honey.</button>
+  </div><div class="feedback" id="feedback"></div></div>`;
+ }
+ app.innerHTML=`<section class="scene">${progress()}<div class="panel">${head(c)}
+  ${c.sky?'<div class="sky"></div>':""}
+  <div class="split"><div>${c.body.map(x=>`<p>${x}</p>`).join("")}</div>
+  <div><div class="quote">${c.quote}</div>${c.side?`<p>${c.side}</p>`:""}
+  <div class="stamp">${c.tag}</div><div class="stars-line">✦ · ˚ ✧ ˚ · ✦</div></div></div>
+  ${extra}${nav()}</div></section>`;
 }
-function renderQuiz(p){
-  app.innerHTML=`<section class="scene">${progress()}<div class="panel">
-    ${heading(p)}
-    ${p.body.map(t=>`<p>${t}</p>`).join("")}
-    <div class="quote">${p.quote}</div>
-    <h3>THE INTERGALACTIC BEE INSTITUTE 🍎🐝</h3>
-    <p>What was Batman trying to say with the Apple-Bee theory?</p>
-    <div class="answer-list">
-      <button class="answer" data-answer="wrong">Bees should stop visiting flowers.</button>
-      <button class="answer" data-answer="correct">Sweetness can come from more than one place.</button>
-      <button class="answer" data-answer="wrong">Apple is scientifically better than honey.</button>
-    </div>
-    <div class="feedback" id="feedback"></div>
-    <span class="stamp">${p.tag}</span>${navRow()}
-  </div></section>`;
+function renderMuseum(c){
+ app.innerHTML=`<section class="scene">${progress()}<div class="panel">${head(c)}
+ ${c.body.map(x=>`<p>${x}</p>`).join("")}
+ <div class="memory-grid">${exhibits.map((m,i)=>`<button class="memory" data-memory="${i}">
+ <b>${m[0]}</b><span>${m[1]}</span></button>`).join("")}</div>
+ <div class="feedback" id="feedback">Tap an exhibit for the museum curator's official findings.</div>
+ ${nav()}</div></section>`;
 }
-function renderMemories(p){
-  const items=[
-    ["“Avan kedakuran.”","When I asked whether your manager was okay with you spending work hours talking to me."],
-    ["Jackson Wang","Celebrity-crush jealousy was apparently a serious matter."],
-    ["The pet policy","You didn’t want a cat or dog stealing all my future attention."],
-    ["Diminishing marginal utility","Even flirting could turn into an economics lesson."],
-    ["The Green Lantern reference","A story about asking someone to marry you after only two days because you already knew, but didn’t want to startle her."],
-    ["The perfect crime","“If I stole your heart & you stole mine, wouldn’t that be a perfect crime?”"],
-    ["The tiger thought","“Handling a tiger is easier than thinking about handling a tiger.” And then you became Buddha."],
-    ["The Delhi house","You showed me your Delhi house and asked if it was normal to be jealous of your dad."]
-  ];
-  app.innerHTML=`<section class="scene">${progress()}<div class="panel">
-    ${heading(p)}<p>Tap a memory card to unlock the director’s commentary. Some of these conversations had absolutely no business going where they went.</p>
-    <div class="memory-grid">${items.map((m,i)=>`<button class="memory" data-memory="${i}"><b>${m[0]}</b><span>${m[1]}</span></button>`).join("")}</div>
-    <div class="feedback" id="feedback" style="margin-top:18px">Choose your exhibit. The museum is open. ✦</div>
-    ${navRow()}</div></section>`;
-}
-function renderAirport(p){
-  app.innerHTML=`<section class="scene">${progress()}<div class="panel" style="text-align:center">
-    ${heading(p)}<div class="airport-sky"></div>
-    ${p.body.map(t=>`<p>${t}</p>`).join("")}
-    <div class="quote">${p.quote}</div><span class="stamp">${p.tag}</span>${navRow()}
-  </div></section>`;
-}
-function renderEnd(p){
-  app.innerHTML=`<section class="scene"><div class="panel" style="text-align:center">
-    <div class="cosmos" aria-hidden="true"><div class="orbit"></div><div class="orbit two"></div><div class="core"></div><div class="moon"></div></div>
-    <div class="eyebrow">${p.eyebrow}</div><h2>${p.title}</h2>
-    ${p.body.map(t=>`<p style="max-width:660px;margin:0 auto 15px">${t}</p>`).join("")}
-    <div class="final-orbit"><span>🦇</span><i></i><span>🐝</span></div>
-    <div class="quote">${p.quote}</div><span class="stamp">${p.tag}</span>
-    <div class="actions">${button("Back to the galaxy ✦","map","btn primary")}${button("Read from the start","restart","btn")}</div>
-  </div></section>`;
+function renderEnd(c){
+ app.innerHTML=`<section class="scene"><div class="panel" style="text-align:center">
+ <div class="cosmos"><div class="orbit"></div><div class="orbit two"></div><div class="core"></div><div class="moon"></div></div>
+ <div class="eyebrow">${c.eyebrow}</div><h2>${c.title}</h2>
+ ${c.body.map(x=>`<p style="max-width:670px;margin:0 auto 15px">${x}</p>`).join("")}
+ <div class="quote">${c.quote}</div><div class="stamp">${c.tag}</div>
+ <p>${c.side}</p><div class="actions">${btn("Back to the galaxy ✦","map","btn primary")}${btn("Start again","home","btn")}</div>
+ </div></section>`;
 }
 function render(){
-  if(current==="home")return renderHome();
-  if(current==="map")return renderMap();
-  const p=pages.find(x=>x.id===current);
-  if(!p)return renderHome();
-  if(current==="applebee")renderQuiz(p);
-  else if(current==="memories")renderMemories(p);
-  else if(current==="diwali")renderAirport(p);
-  else if(current==="end")renderEnd(p);
-  else renderStory(p);
-  window.scrollTo({top:0,behavior:"smooth"});
+ if(current==="home")return home();
+ if(current==="map")return map();
+ const c=chapters.find(x=>x.id===current);
+ if(!c)return home();
+ if(c.museum)return renderMuseum(c);
+ if(current==="end")return renderEnd(c);
+ renderStory(c);
+ window.scrollTo({top:0,behavior:"smooth"});
 }
-function go(id){current=id;render()}
+function go(id){current=id;render();window.scrollTo({top:0,behavior:"smooth"})}
 
-app.addEventListener("click",event=>{
-  const target=event.target.closest("button");
-  if(!target)return;
-  if(target.dataset.go){go(target.dataset.go);return}
-  const action=target.dataset.action;
-  if(action==="map")go("map");
-  if(action==="go-origin")go("origin");
-  if(action==="restart")go("home");
-  if(action==="next"){
-    const i=pageNumber();
-    if(i<pages.length-1)go(pages[i+1].id);else go("map");
+app.addEventListener("click",e=>{
+ const b=e.target.closest("button");
+ if(!b)return;
+ if(b.dataset.go){go(b.dataset.go);return}
+ const a=b.dataset.action;
+ if(a==="map")go("map");
+ if(a==="home")go("home");
+ if(a==="go-origin")go("origin");
+ if(a==="next"){
+  const i=chapterIndex();
+  if(i>=0&&i<chapters.length-1)go(chapters[i+1].id);
+  else go("map");
+ }
+ if(a==="random"){
+  const choices=chapters.filter(c=>c.id!=="end");
+  go(choices[Math.floor(Math.random()*choices.length)].id);
+ }
+ if(a==="secret"){
+  const s=document.getElementById("secret");
+  if(s)s.classList.toggle("show");
+ }
+ if(b.dataset.answer){
+  const f=document.getElementById("feedback");
+  if(b.dataset.answer==="correct"){
+   app.querySelectorAll("[data-answer]").forEach(x=>{
+    x.disabled=true;if(x.dataset.answer==="correct")x.classList.add("correct");
+   });
+   f.textContent="Correct! The Apple-Bee Institute awards you a completely unaccredited degree. 🍎🐝";
+  }else{
+   b.disabled=true;b.classList.add("wrong");
+   f.textContent="Incorrect. Please retake the course. Tuition is payable in seven kisses.";
   }
-  if(action==="surprise"){
-    const choices=pages.filter(p=>!["home","end"].includes(p.id));
-    go(choices[Math.floor(Math.random()*choices.length)].id);
-  }
-  if(action==="secret"){
-    const secret=app.querySelector("#secret");
-    if(secret)secret.classList.toggle("show");
-  }
-  if(target.dataset.answer){
-    const answers=app.querySelectorAll("[data-answer]");
-    const feedback=app.querySelector("#feedback");
-    if(target.dataset.answer==="correct"){
-      answers.forEach(b=>{b.disabled=true;if(b.dataset.answer==="correct")b.classList.add("correct")});
-      feedback.textContent="Correct! Bee can find sweetness in more than one place. 🍎🐝 Batman approves.";
-    }else{
-      target.classList.add("wrong");target.disabled=true;
-      feedback.textContent="Incorrect. Please retake this very important course in Apple-Bee studies.";
-    }
-  }
-  if(target.dataset.memory!==undefined){
-    const messages=[
-      "A tiny work-hours rebellion in the name of talking to Bee.",
-      "Jackson Wang was not allowed to have an easy time in this universe.",
-      "Future pets would have to negotiate for attention.",
-      "Romance, but make it an economics lecture.",
-      "The Green Lantern story: he fell for her immediately, waited so he wouldn’t startle her, and asked after two days.",
-      "A meme that made stealing a heart sound like a flawless heist.",
-      "The tiger line that made the overthinker sound like a monk.",
-      "A house photo, a little jealousy, and an unexpectedly sweet question."
-    ];
-    app.querySelector("#feedback").textContent=messages[Number(target.dataset.memory)];
-  }
+ }
+ if(b.dataset.memory!==undefined){
+  const m=exhibits[Number(b.dataset.memory)];
+  document.getElementById("feedback").textContent=m[2];
+ }
 });
 render();
 </script>
