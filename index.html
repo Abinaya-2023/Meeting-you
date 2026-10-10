@@ -1,0 +1,975 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff8f5">
+<title>October 11 — Batman & Bee</title>
+
+<style>
+:root {
+  --bg: #fffaf5;
+  --ink: #392e3d;
+  --muted: #796d7e;
+  --pink: #f4c9d8;
+  --rose: #d9799c;
+  --lilac: #ded5f5;
+  --mint: #d8eee2;
+  --yellow: #f7e8ae;
+  --white: #ffffff;
+  --border: #f0e4eb;
+  --shadow: 0 18px 50px rgba(77, 48, 76, 0.10);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Trebuchet MS", system-ui, sans-serif;
+  line-height: 1.65;
+}
+
+button { font: inherit; cursor: pointer; }
+
+button:focus-visible {
+  outline: 3px solid #9d73c7;
+  outline-offset: 4px;
+}
+
+#progress {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 0;
+  background: linear-gradient(90deg, var(--rose), #a994e8, #a6d8c0);
+}
+
+section {
+  min-height: 100vh;
+  padding: 76px 22px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.wrap {
+  width: min(920px, 100%);
+  margin: auto;
+}
+
+.center { text-align: center; }
+
+.eyebrow {
+  color: var(--rose);
+  text-transform: uppercase;
+  letter-spacing: .17em;
+  font-size: .76rem;
+  font-weight: 800;
+}
+
+h1, h2, h3, p { margin-top: 0; }
+
+h1 {
+  font-size: clamp(3.2rem, 10vw, 7rem);
+  line-height: .98;
+  letter-spacing: -.07em;
+  margin-bottom: 25px;
+}
+
+h2 {
+  font-size: clamp(2.3rem, 6vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: -.055em;
+  margin-bottom: 20px;
+}
+
+h3 { line-height: 1.25; }
+
+.lead {
+  color: var(--muted);
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+  max-width: 680px;
+}
+
+.center .lead { margin-inline: auto; }
+
+.hero {
+  background:
+    radial-gradient(circle at 15% 20%, #ffe8ef 0, transparent 35%),
+    radial-gradient(circle at 88% 78%, #e8e0ff 0, transparent 36%),
+    var(--bg);
+  overflow: hidden;
+}
+
+.hero .wrap { position: relative; z-index: 1; }
+
+.hero::before, .hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::before {
+  width: 180px;
+  height: 180px;
+  background: var(--yellow);
+  top: 8%;
+  right: 7%;
+  opacity: .65;
+}
+
+.hero::after {
+  width: 100px;
+  height: 100px;
+  background: var(--mint);
+  bottom: 9%;
+  left: 7%;
+  opacity: .8;
+}
+
+.stamp {
+  display: inline-block;
+  padding: 10px 17px;
+  border-radius: 100px;
+  background: rgba(255,255,255,.8);
+  border: 1px solid white;
+  margin-bottom: 28px;
+  font-size: .9rem;
+}
+
+.bubble {
+  display: inline-block;
+  margin: 7px 4px;
+  padding: 8px 15px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px #5a345010;
+  font-size: .92rem;
+}
+
+.btnrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.center .btnrow { justify-content: center; }
+
+.btn {
+  border: 0;
+  background: var(--ink);
+  color: white;
+  padding: 13px 21px;
+  border-radius: 100px;
+  font-weight: 800;
+  box-shadow: 0 8px 20px #352b3920;
+  transition: transform .2s;
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn.soft {
+  background: var(--pink);
+  color: #4b3040;
+}
+
+.btn.alt {
+  background: white;
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+
+.card, .tile {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  padding: clamp(22px, 4vw, 36px);
+  box-shadow: var(--shadow);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.tile {
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 10px 30px #5a345008;
+}
+
+.tile p:last-child { margin-bottom: 0; }
+
+.emoji {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  border-radius: 100px;
+  background: #f7edf2;
+  padding: 6px 10px;
+  color: #87516b;
+  margin-bottom: 12px;
+}
+
+.quote {
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -.035em;
+}
+
+.note {
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.smallcaps {
+  font-size: .77rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.soft-section {
+  background: linear-gradient(135deg, #fff6fa, #fffaf5);
+}
+
+.timeline {
+  display: grid;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.moment {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 15px;
+  align-items: start;
+}
+
+.num {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--lilac);
+  font-weight: 900;
+}
+
+.moment:nth-child(3n) .num { background: var(--mint); }
+.moment:nth-child(3n+2) .num { background: var(--pink); }
+
+.moment .tile { padding: 22px; }
+
+.reveal {
+  display: none;
+  margin-top: 16px;
+  padding: 18px;
+  border-radius: 18px;
+  background: #fff7fb;
+  border: 1px dashed #e6aac3;
+}
+
+.reveal.show { display: block; }
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.option {
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--ink);
+  border-radius: 17px;
+  padding: 15px;
+  text-align: left;
+  transition: background .2s, border-color .2s;
+}
+
+.option:hover {
+  background: #fff3f7;
+  border-color: var(--rose);
+}
+
+.feedback {
+  min-height: 28px;
+  color: #87516b;
+  font-weight: 800;
+}
+
+.airport {
+  background: linear-gradient(150deg, #f3efff, #fffaf5 58%, #e5f4ed);
+}
+
+.airport .card { max-width: 760px; margin: auto; }
+
+.window {
+  height: 170px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  margin: 22px 0;
+  background: linear-gradient(#b7c4ec, #f8d8de 70%, #f9eee0);
+}
+
+.window::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 7px;
+  background: #ffffff80;
+}
+
+.window::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 7px;
+  background: #ffffff80;
+}
+
+.plane {
+  position: absolute;
+  left: 43%;
+  top: 40%;
+  font-size: 2.5rem;
+  animation: fly 5s ease-in-out infinite;
+}
+
+@keyframes fly {
+  0%, 100% { transform: translate(-20px, 8px) rotate(-8deg); }
+  50% { transform: translate(90px, -18px) rotate(-8deg); }
+}
+
+.final {
+  background:
+    radial-gradient(circle at 20% 20%, #fbe1eb, transparent 35%),
+    radial-gradient(circle at 80% 80%, #e1dbfb, transparent 35%),
+    var(--bg);
+}
+
+.footerline {
+  height: 1px;
+  background: var(--border);
+  margin: 24px 0;
+}
+
+.stars {
+  font-size: 1.7rem;
+  letter-spacing: .2em;
+  color: #d8ad43;
+}
+
+footer {
+  text-align: center;
+  padding: 28px 20px;
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+@media (max-width: 650px) {
+  section { padding: 60px 18px; }
+  .grid, .quiz-options { grid-template-columns: 1fr; }
+  .moment { grid-template-columns: 42px 1fr; gap: 10px; }
+  .num { width: 40px; height: 40px; border-radius: 13px; }
+  .hero::before { width: 100px; height: 100px; }
+  .hero::after { width: 65px; height: 65px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div id="progress"></div>
+
+<main>
+
+<!-- OPENING -->
+<section class="hero" id="start">
+  <div class="wrap center">
+    <div class="stamp">📅 October 11, 2025 · The very beginning</div>
+    <h1>Before there was<br><span style="color:#cc7398">Batman &amp; Bee</span></h1>
+    <p class="lead">
+      There was an app called Schmooze, two people who had no idea
+      what they were starting, and a chat that kept finding reasons to continue.
+    </p>
+    <div>
+      <span class="bubble">🦇 Batman has entered the chat</span>
+      <span class="bubble">🐝 Bee is listening</span>
+    </div>
+    <div class="btnrow">
+      <button class="btn" onclick="goTo('swipe')">Open the origin story →</button>
+    </div>
+    <p class="note" style="margin-top:22px">
+      A tiny museum of the beginning. Not the whole story — just the first pages.
+    </p>
+  </div>
+</section>
+
+<!-- CHAPTER 1 -->
+<section id="swipe">
+  <div class="wrap">
+    <p class="eyebrow">Chapter 01 · The swipe</p>
+    <h2>It started online.<br>It didn't stay ordinary.</h2>
+    <p class="lead">
+      On October 11, 2025, Schmooze introduced Batman and Bee.
+      Neither of you had a complete map. Somehow, the conversation kept opening new tabs.
+    </p>
+
+    <div class="grid">
+      <article class="tile">
+        <div class="emoji">📱</div>
+        <span class="tag">The platform</span>
+        <h3>Schmooze</h3>
+        <p>The very un-grand setting for a beginning that would become very much yours.</p>
+      </article>
+      <article class="tile">
+        <div class="emoji">✨</div>
+        <span class="tag">Early lore</span>
+        <h3>“A stands for Amazing”</h3>
+        <p>A little line with big first-chat energy. The kind of thing that belongs in the museum because it happened at the beginning.</p>
+      </article>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <p class="quote">“We are in the same team.”</p>
+      <p class="note">One of those lines that sounds simple — and still deserves a little frame around it.</p>
+    </div>
+
+    <div class="btnrow">
+      <button class="btn" onclick="goTo('batman')">Proceed to Batman's opening statements →</button>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 2 -->
+<section id="batman" class="soft-section">
+  <div class="wrap">
+    <p class="eyebrow">Chapter 02 · Batman's opening statements</p>
+    <h2>He came with policies.<br>And questions.</h2>
+    <p class="lead">
+      Some people start with “hey”. Batman apparently arrived with
+      a relationship constitution and a long-term planning department.
+    </p>
+
+    <div class="timeline">
+      <div class="moment">
+        <div class="num">01</div>
+        <div class="tile">
+          <span class="tag">Policy announcement</span>
+          <h3>The no-divorce policy</h3>
+          <p>Within the first few days, Tanuj said he wanted to live by a “no-divorce policy.” Casual little opening topic, obviously.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="num">02</div>
+        <div class="tile">
+          <span class="tag">Long-range planning</span>
+          <h3>Two kids, apparently</h3>
+          <p>Along with the no-divorce policy, he also said he wanted two kids. The man was opening the family-planning spreadsheet early.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="num">03</div>
+        <div class="tile">
+          <span class="tag">The 50-year question</span>
+          <p class="quote">“Aren't you scared of the circumstance of waking up to me everyday for the next 50 years?”</p>
+          <p class="note">Batman: asking the big question before the plot has even finished loading.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="num">04</div>
+        <div class="tile">
+          <span class="tag">Career counselling, but make it domestic</span>
+          <h3>The 2 PM husband</h3>
+          <p>When Bee said he could be a therapist, he asked whether she was okay with her husband coming home by 2 PM every day.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="btnrow">
+      <button class="btn" onclick="goTo('attention')">Next: the Bee attention crisis →</button>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 3 -->
+<section id="attention">
+  <div class="wrap">
+    <p class="eyebrow">Chapter 03 · Attention economics</p>
+    <h2>Bee's attention was<br>a highly contested resource.</h2>
+    <p class="lead">
+      A growing collection of demands, negotiations, and very specific Batman priorities.
+    </p>
+
+    <div class="grid">
+      <article class="tile">
+        <div class="emoji">💋</div>
+        <span class="tag">Daily quota</span>
+        <h3>Seven kisses a day</h3>
+        <p>Not six. Not “whenever”. Seven. Batman had targets.</p>
+      </article>
+
+      <article class="tile">
+        <div class="emoji">🐈</div>
+        <span class="tag">Pet policy</span>
+        <h3>No cat. No dog.</h3>
+        <p>Tanuj didn't want Bee to have a cat or dog in the future because he wanted all her attention. The competition was being eliminated before it arrived.</p>
+      </article>
+
+      <article class="tile">
+        <div class="emoji">👑</div>
+        <span class="tag">Celebrity threat</span>
+        <h3>Jackson Wang</h3>
+        <p>Batman got possessive over Jackson Wang because Jackson was Bee's celebrity crush. A global superstar entered the lore as a rival.</p>
+      </article>
+
+      <article class="tile">
+        <div class="emoji">😘</div>
+        <span class="tag">Tactical deployment</span>
+        <h3>Kiss emojis</h3>
+        <p>He sent kiss emojis specifically to make Bee blush. Mission objective: achieved, presumably.</p>
+      </article>
+    </div>
+
+    <div class="card" style="margin-top:22px">
+      <p class="smallcaps">Interactive hearing · Batman vs. Future Pets</p>
+      <p class="quote">The court asks: why is a hypothetical cat already in trouble?</p>
+      <p>Choose the most likely Batman defence.</p>
+
+      <div class="quiz-options">
+        <button class="option" onclick="answer('pet','A cat would steal my Bee time.')">“A cat would steal my Bee time.”</button>
+        <button class="option" onclick="answer('pet','I have reviewed the household risk register.')">“I have reviewed the household risk register.”</button>
+        <button class="option" onclick="answer('pet','I simply believe in equal-opportunity cuddles.')">“I believe in equal-opportunity cuddles.”</button>
+        <button class="option" onclick="answer('pet','All of the above, your honour.')">“All of the above, your honour.”</button>
+      </div>
+
+      <div class="feedback" id="pet-feedback" aria-live="polite"></div>
+    </div>
+
+    <div class="btnrow">
+      <button class="btn" onclick="goTo('economics')">Next: the economics department →</button>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 4 -->
+<section id="economics" class="soft-section">
+  <div class="wrap">
+    <p class="eyebrow">Chapter 04 · Applied Batman economics</p>
+    <h2>Love, but make it<br>a management concept.</h2>
+    <p class="lead">
+      Probabilities were made. Theories were developed. Productivity was defended with a straight face.
+    </p>
+
+    <div class="timeline">
+      <div class="moment">
+        <div class="num">🍎</div>
+        <div class="tile">
+          <span class="tag">The flagship theory</span>
+          <h3>The Apple-Bee Theory</h3>
+          <p class="quote">“that bee doesn't need to eat honey from the flowers but also from the apple.”</p>
+          <p>Batman’s argument: Bee doesn't only get sweetness from flowers; she can get it from an apple too. A theory that apparently required its own department.</p>
+          <button class="btn soft" onclick="toggle('apple-explain')">Make Batman defend this theory</button>
+          <div class="reveal" id="apple-explain">
+            <p><strong>Question for Batman:</strong> If Bee can get sweetness from flowers and apples, what exactly is the apple in this theory?</p>
+            <p>Possible answer: “Please don't interrupt the research. The theory is still under development.”</p>
+            <p class="note">This is a playful reconstruction for the website, not a claim that he said that exact reply.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="num">📊</div>
+        <div class="tile">
+          <span class="tag">Probability division</span>
+          <h3>Making probabilities</h3>
+          <p>He was calculating probabilities and building theories about you two. Batman did not simply have a feeling; he appeared to be preparing a model.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="num">🍬</div>
+        <div class="tile">
+          <span class="tag">Delayed gratification</span>
+          <h3>The delayed marshmallow effect</h3>
+          <p>Bee was making him wait to meet her, and Batman connected it to the delayed marshmallow effect. Even waiting got a concept note.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="num">📉</div>
+        <div class="tile">
+          <span class="tag">Economics class</span>
+          <h3>Diminishing marginal utility</h3>
+          <p>He talked about diminishing marginal utility and other management/economic concepts. Flirting, but with lecture slides hiding somewhere.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="num">🖥️</div>
+        <div class="tile">
+          <span class="tag">Productivity defence</span>
+          <h3>Different screens, better performance</h3>
+          <p class="quote">“I need to look at different screens to be better and looking at our chat will boost productivity”</p>
+          <p>Work and Bee were apparently not competing priorities. They were part of an innovative productivity framework.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:22px">
+      <p class="smallcaps">Quick quiz · Batman's theory lab</p>
+      <p><strong>What was the Apple-Bee Theory about?</strong></p>
+
+      <div class="quiz-options">
+        <button class="option" onclick="answer('apple','Correct! Bee can get sweetness from the apple too.')">Bee can get sweetness from the apple too.</button>
+        <button class="option" onclick="answer('apple','Not quite — it was about where Bee can get sweetness.')">Apple products improve productivity.</button>
+        <button class="option" onclick="answer('apple','Not quite — Batman was making an analogy about sweetness.')">Bees should stop visiting flowers.</button>
+        <button class="option" onclick="answer('apple','Not quite — it was about Bee and sweetness, not stock prices.')">A new investment strategy.</button>
+      </div>
+
+      <div class="feedback" id="apple-feedback" aria-live="polite"></div>
+    </div>
+
+    <div class="btnrow">
+      <button class="btn" onclick="goTo('manyforms')">Next: the many forms of Bee →</button>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 5 -->
+<section id="manyforms">
+  <div class="wrap">
+    <p class="eyebrow">Chapter 05 · Bee lore</p>
+    <h2>Bee had several<br>character arcs.</h2>
+
+    <div class="grid">
+      <article class="tile">
+        <div class="emoji">🐼</div>
+        <span class="tag">Sleep-deprived era</span>
+        <h3>Panda Bee</h3>
+        <p>Bee talked to him until 2 AM, and he started calling her “panda ma”. Thus: Panda Bee was born.</p>
+      </article>
+
+      <article class="tile">
+        <div class="emoji">🍽️</div>
+        <span class="tag">Nurturing era</span>
+        <h3>“Mommy”</h3>
+        <p>Because Bee was asking him to eat like his mom, he called her “mommy” for a while.</p>
+      </article>
+
+      <article class="tile">
+        <div class="emoji">☕</div>
+        <span class="tag">Sitcom analysis</span>
+        <h3>Monica Geller vibes</h3>
+        <p>He said Bee gave him Monica Geller vibes from <em>Friends</em> — and he likes Monica. That was apparently a compliment in Batman's cinematic universe.</p>
+      </article>
+
+      <article class="tile">
+        <div class="emoji">⭐</div>
+        <span class="tag">Performance review</span>
+        <h3>The star system</h3>
+        <p>Bee would give him a star whenever he did something well. Batman's reviews came with adorable little ratings.</p>
+        <div class="stars">★ ★ ★</div>
+      </article>
+
+      <article class="tile">
+        <div class="emoji">🌷</div>
+        <span class="tag">Tiny kindness</span>
+        <h3>The flower sticker</h3>
+        <p>He sent a sticker showing a bunch of tiny flowers in a kid's hand. Small image, soft little place in the archive.</p>
+      </article>
+
+      <article class="tile">
+        <div class="emoji">☀️</div>
+        <span class="tag">Daily routine</span>
+        <h3>Good mornings &amp; memes</h3>
+        <p>He said he would say good morning every day, and he sent memes. A tiny ritual can become a recognisable part of a beginning.</p>
+      </article>
+    </div>
+
+    <div class="card" style="margin-top:20px">
+      <p class="quote">“avan kedakuran”</p>
+      <p class="note">When Bee asked if his manager was okay with him spending time with her during work hours, that was Batman's general energy about the manager.</p>
+    </div>
+
+    <div class="btnrow">
+      <button class="btn" onclick="goTo('random')">Next: the Batman miscellany shelf →</button>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 6 -->
+<section id="random" class="soft-section">
+  <div class="wrap">
+    <p class="eyebrow">Chapter 06 · The miscellany shelf</p>
+    <h2>Things that were<br>extremely him.</h2>
+
+    <div class="timeline">
+      <div class="moment">
+        <div class="num">🟢</div>
+        <div class="tile">
+          <h3>The Green Lantern reference</h3>
+          <p>The hero asks the heroine to marry him; she says it's only been two days since they met. He says he fell for her the moment he saw her and didn't want to startle her, so he waited two days to ask. The reference entered the Batman &amp; Bee archive.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="num">💋</div>
+        <div class="tile">
+          <h3>“Chumma” has entered the chat</h3>
+          <p>When Bee used the word “chumma”, he said chumma means kiss in Hindi — so now she'd know that “chumma kudu” means give me a kiss.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="num">🧘</div>
+        <div class="tile">
+          <h3>Batman became Buddha</h3>
+          <p class="quote">“handling a tiger is easier than thinking about handling a tiger”</p>
+          <p>And just like that, a management lesson turned into a philosophical moment.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="num">🐈</div>
+        <div class="tile">
+          <h3>The cat always lands on its feet</h3>
+          <p class="quote">“the cat will always land on its feet”</p>
+          <p>A repeated Batman line. The museum preserves it without pretending to know every context in which it appeared.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="num">🎬</div>
+        <div class="tile">
+          <h3>STR fan club</h3>
+          <p>He likes STR. This is a factual exhibit. No further cross-examination required.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="num">🏡</div>
+        <div class="tile">
+          <h3>Jealous of his dad's house</h3>
+          <p>One day he sent a picture of his house in Delhi and asked:</p>
+          <p class="quote">“is it normal to be jealous of my dad? he gets to live in such a lovely place”</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="num">🕵️</div>
+        <div class="tile">
+          <h3>The perfect crime meme</h3>
+          <p class="quote">“if i stole your heart &amp; you stole mine, wouldn't that be a perfect crime?”</p>
+          <p>Batman arrived with meme-based evidence.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="num">🔀</div>
+        <div class="tile">
+          <h3>Instagram Blend</h3>
+          <p>You started a Blend on Instagram — another little shared corner of the early days.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="btnrow">
+      <button class="btn" onclick="goTo('airport')">Enter the quiet chapter →</button>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 7 -->
+<section id="airport" class="airport">
+  <div class="wrap">
+    <p class="eyebrow">Chapter 07 · Diwali morning</p>
+    <h2>A little quieter.<br>A little more precious.</h2>
+
+    <div class="card">
+      <p class="lead">An early morning flight to Delhi. A small bet. A window. Two voice notes.</p>
+
+      <div class="window" aria-label="Illustration of a plane passing a window">
+        <span class="plane">✈️</span>
+      </div>
+
+      <p>You bet on whether Batman would reach the airport early or just in time. Bee guessed early — and won.</p>
+
+      <p>Then you waited, looking through your window, hoping to say bye until his airplane took off from the ground.</p>
+
+      <p>That was the day you sent him a voice note for the first time, and he sent you one too.</p>
+
+      <div class="footerline"></div>
+
+      <p class="quote">Sometimes a beginning becomes memorable because of one small thing you did not want to miss.</p>
+      <p class="note">This memory gets its own quiet page. No punchline needed.</p>
+    </div>
+
+    <div class="btnrow">
+      <button class="btn" onclick="goTo('softthings')">Continue gently →</button>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 8 -->
+<section id="softthings" class="soft-section">
+  <div class="wrap">
+    <p class="eyebrow">Chapter 08 · The soft things</p>
+    <h2>Under all the banter,<br>there was tenderness.</h2>
+
+    <div class="grid">
+      <article class="tile">
+        <div class="emoji">🫶</div>
+        <span class="tag">A safe-space conversation</span>
+        <p class="quote">He said he was your safe space and you were his safe space.</p>
+        <p>He told Bee she could be herself with him whether he became her boyfriend or not. A calm, important moment in the early story.</p>
+      </article>
+
+      <article class="tile">
+        <div class="emoji">🤝</div>
+        <span class="tag">Same team</span>
+        <p class="quote">“we are in the same team”</p>
+        <p>A little reminder of togetherness that belongs here, near the beginning.</p>
+      </article>
+
+      <article class="tile">
+        <div class="emoji">🌹</div>
+        <span class="tag">The unhurried beginning</span>
+        <p>There were memes, little check-ins, theories, stickers, questions, and conversations that kept stretching a little longer.</p>
+        <p class="note">This page is about the start — not a promise about the entire future.</p>
+      </article>
+
+      <article class="tile">
+        <div class="emoji">🦇🐝</div>
+        <span class="tag">The names</span>
+        <p class="quote">Batman &amp; Bee</p>
+        <p>Two nicknames that turned a chat into a little universe with its own vocabulary.</p>
+      </article>
+    </div>
+
+    <div class="btnrow">
+      <button class="btn" onclick="goTo('final')">Open the time capsule →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section id="final" class="final">
+  <div class="wrap center">
+    <p class="eyebrow">October 11 · Kept safe in the archive</p>
+    <h2>Not the whole story.<br>Just the first page.</h2>
+
+    <p class="lead">
+      A swipe on Schmooze. A no-divorce policy. An Apple-Bee theory.
+      Seven kisses. A plane leaving for Delhi. A first voice note.
+      A conversation that kept becoming more itself.
+    </p>
+
+    <div class="card" style="max-width:650px;margin:28px auto;text-align:left">
+      <p class="smallcaps">A note for Batman</p>
+      <p>
+        Here is the beginning, preserved in all its strange, sweet,
+        deeply-you-and-me details — the theories, the memes, the tiny flowers,
+        the big questions, and the moments that quietly mattered.
+      </p>
+      <p>
+        Happy October 11, Batman. This little museum is for the day our story began to take shape.
+      </p>
+      <p style="text-align:right;font-weight:800">— Bee 🐝</p>
+    </div>
+
+    <div class="btnrow">
+      <button class="btn" onclick="goTo('start')">↺ Start the story again</button>
+      <button class="btn alt" onclick="toggle('credits')">Museum notes</button>
+    </div>
+
+    <div class="reveal" id="credits" style="text-align:left">
+      <p><strong>Curator's note:</strong> This website celebrates the beginning of the Batman &amp; Bee story on October 11, 2025. It uses the memories and lines provided by Bee. Where a playful response or interaction has been added for the website, it is labelled as a reconstruction rather than a verbatim quote.</p>
+      <p class="note">You can personalise this further by replacing text, adding photos or audio files, and changing the colours in the HTML/CSS.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Made of tiny memories, big questions, and a suspicious amount of Batman economics. 🐝🦇
+</footer>
+
+<script>
+function goTo(id) {
+  const target = document.getElementById(id);
+  if (target) {
+    target.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth"
+    });
+  }
+}
+
+function toggle(id) {
+  const element = document.getElementById(id);
+  if (element) element.classList.toggle("show");
+}
+
+function answer(type, message) {
+  const feedback = document.getElementById(type + "-feedback");
+  if (feedback) feedback.textContent = message;
+}
+
+window.addEventListener("scroll", function () {
+  const maxScroll =
+    document.documentElement.scrollHeight - window.innerHeight;
+
+  const percentage = maxScroll > 0
+    ? (window.scrollY / maxScroll) * 100
+    : 0;
+
+  document.getElementById("progress").style.width = percentage + "%";
+});
+</script>
+
+</body>
+</html>
